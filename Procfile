@@ -1,1 +1,1 @@
-web: gunicorn study_buddy:app
+web: gunicorn src.study_buddy:app
