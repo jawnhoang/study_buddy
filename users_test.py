@@ -7,7 +7,5 @@ def new_user():
     return user
 
 def test_new_user(new_user):
-    assert new_user.email =='patkennedy79@gmail.com'
-    assert new_user.password_hash !='FlaskIsAwesome'
-    assert not new_user.authenticated
-    assert new_user.role =='user'
+    assert new_user.username == 'daile'
+    assert new_user.email == 'patkennedy79@gmail.com'
