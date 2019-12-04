@@ -5,21 +5,20 @@
     <!-- this is seen after loging in -->
     <title>Studdy_buddy</title>
     <h1> Hello {{ current_user.username }}!</h1>
-<!--     
+<!--
     {% for post in posts %}
     <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %} 
+    {% endfor %}
 -->
 <form action"{{ url_for('index' ) }}"  method="post">
 <p id="student_course">
      {{ form.student_courses.label }}<br>
-     {{ form.student_courses(size=32) }}{{ form.submit() }}
+     {{ form.student_courses }}<br>{{ form.submit() }}
      {% for buddy in found_buddy %}
-        <li>{{ buddy.id }},{{ buddy.username }}, {{ buddy.student_courses }} </li>
+        <li>{{ buddy.username }}, {{ buddy.student_courses }} </li>
         {% endfor %}
-</p>  
+</p>
 </form>
-
 
 
 {% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+	<script type="text/javascript" class="chat_box">
+	$(document).ready(function() {
+		var socketio = io.connect('http://127.0.0.1:5000');
+
+
+		socketio.on('connect', function() {
+			socketio.send('User has connected!\n');
+		});
+
+		socketio.on('message', function(msg) {
+			$("#messages").append(''<li>' + msg + </li>);
+			console.log('Received message');
+		});
+		$('#sendbutton').on('click', function() {
+			socketio.send($('#myMessage').val());
+			$('#myMessage').val('');
+		});
+	});
+	</script>
+
+	<li id="messages"/br></li>
+
+	<input type="text" id="myMessage">
+	<button id="sendbutton">Send</button>
+
+
+{% endblock %}

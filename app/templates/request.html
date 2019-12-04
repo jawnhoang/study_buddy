@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class=firstList">
+    {{ list.addNewUser.label }}<br>
+    {{ list.addNewUser(size=32) }}{{ list.submit() }}
+    {{ postUser }}
+</div>
+
+{% endblock %}

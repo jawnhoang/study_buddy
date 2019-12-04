@@ -26,7 +26,8 @@
             <!-- <a href="{{ url_for('login') }}" button type="button" class="btn btn-primary">Login</a> -->
             {% else %}
             <a href="{{ url_for('profilePage') }}"button type="button" class="btn btn-primary">Profile</a>
-      
+            <a href="{{ url_for('chat') }}" button type="button" class="btn btn-secondary">chat</a>
+            <a href="{{ url_for('location') }}" button type="button" class="btn btn-secondary">Your location</a>
             <a href="{{ url_for('logout') }}"button type="button" class="btn btn-primary">Logout</a>
 
             {% endif %}
