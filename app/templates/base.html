@@ -25,9 +25,11 @@
             {% if current_user.is_anonymous %} <!-- where did this current_user come from? -->
             <!-- <a href="{{ url_for('login') }}" button type="button" class="btn btn-primary">Login</a> -->
             {% else %}
+            <a href="{{ url_for('profilePage') }}"button type="button" class="btn btn-primary">Profile</a>
+      
             <a href="{{ url_for('logout') }}"button type="button" class="btn btn-primary">Logout</a>
-            
-            {% endif %} 
+
+            {% endif %}
         </div>
         </div>
         <hr>
