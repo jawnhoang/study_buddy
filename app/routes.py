@@ -4,7 +4,9 @@ from app import db # from __init__.py
 from app.forms import LoginForm
 from app.forms import CourseForm
 from app.forms import RegistrationForm
+from app.forms import FriendsForm
 from app.models import User
+from app.models import Post
 from flask_login import current_user, login_user
 from flask_login import logout_user
 from flask_login import login_required
@@ -17,14 +19,14 @@ from app.models import User, Post
 @app.route('/index', methods=["GET" ,"POST"])
 @login_required
 def index():
-    
+
     form = CourseForm()
     update_course = User.query.filter_by(id=current_user.id).first()
     update_course.student_courses = form.student_courses.data
     db.session.commit()
     flash('Looking for students with the same course')
     found_buddy = User.query.filter_by(student_courses=update_course.student_courses)
-    return render_template('index.html', title='User_Home',form=form , found_buddy=found_buddy)
+    return render_template('index.html', title='User_Home', form=form, found_buddy=found_buddy)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -60,8 +62,17 @@ def register():
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data) # need something like this for student column of courses
         user.set_password(form.password.data)
+        post = Post(body=form.username.data )
         db.session.add(user)
+        db.session.add(post)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route('/profile', methods=["Get", "POST"])
+@login_required
+def profilePage():
+    image_file = url_for('static', filename = 'prof/' + current_user.image_file)
+    #user = User.query.filter_by(username = current_user.username)
+    return render_template("profile.html", title ='Profile', image_file=image_file )
