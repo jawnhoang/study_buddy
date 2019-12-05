@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<img id="profile_img_paper" src="../static/img/paper.jpg">
 <img src='{{ image_file }}' width="10%" height="20%">
 <h1>{{ current_user.username }} </h1>
 <p> Currently studying: {{current_user.student_courses}} </p>

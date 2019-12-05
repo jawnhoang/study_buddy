@@ -1,10 +1,5 @@
-# study_buddy 
+# study_buddy
 [![Build Status](https://travis-ci.com/dailesjsu/study_buddy.svg?branch=master)](https://travis-ci.com/dailesjsu/study_buddy)
-
-#Link to our web-applocation:
-http://studybuddy-sjsu.herokuapp.com
-
-#Unit tets is updated under the app folder. They are named with _test.py under the app folder. Anytime, we push the local repo to remote repo, travis will automatically run the test  
 
 ## How to use the application:
  Have **flask, python3 and mysql** installed
@@ -26,11 +21,7 @@ http://studybuddy-sjsu.herokuapp.com
  - Logout: When the customer want to log out, then they will be redirected to the homepage.
  - Register: For new customer to create new account
  - Location: we use google's api for geolocation in html5. We simply use the ip_address of the user with their consent in order to show    them their location.
- - invisible: the users won't be able to see you.
+ - Block study buddy: the useres will have a list dedicated to keep some people away.
  - Dark mode
  - Find study buddy: using your location, we see in our data base who else in proximity of you or the general area of the school   would    like to study the same course
-- add friend:keep track of list of people that you studied with
-- remove friend
--change profile pic
-- change username
-- change class
+ - Rate study buddy: each user will be assigned points, and based on your rating from your buddy, you will be rated and get to rate others.

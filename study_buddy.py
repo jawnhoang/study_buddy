@@ -1,4 +1,4 @@
-# uses the app object from __init__.py 
+# uses the app object from __init__.py
 from app import app
 from app import manager
 

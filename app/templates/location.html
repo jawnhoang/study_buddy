@@ -6,8 +6,7 @@
     <div id="mapid"></div>
 
  <!-- Make sure you put this AFTER Leaflet's CSS -->
-<!-- <img src="/static/img/map.img.jpg" alt="mapimg" id="location_mapimage"> -->
-<img id="location_img_paper" src="../static/img/paper.jpg">
+
 <script>
 
  var map = L.map('mapid');
@@ -28,7 +27,7 @@
       var radius = e.accuracy / 2;
 
       current_position = L.marker(e.latlng).addTo(map)
-        .bindPopup( "{{user}} is within" + radius + " meters from this point").openPopup();
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
       current_accuracy = L.circle(e.latlng, radius).addTo(map);
     }
@@ -42,7 +41,7 @@
 
     // wrap map.locate in a function
     function locate() {
-      map.locate({setView: true, maxZoom: 16,enableHighAccuracy: true});
+      map.locate({setView: true, maxZoom: 16});
     }
 
     // call locate every 3 seconds... forever
