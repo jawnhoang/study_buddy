@@ -14,15 +14,9 @@ body{
     color:#F0EFF9 ;
 }
 
-.chat_box{
-  width: 300px;
-  height: 100px;
-  border: 1px solid blue;
-}
 
 #mapid {
-	height: 600px;
-	width: 600px;
-	margin-left: 300px;
+	height: 1000px;
+	width: 1000px;
+	margin-left: 500px;
  }
-

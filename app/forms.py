@@ -19,6 +19,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    course = StringField('What are you studying?', validators=[DataRequired()])
     submit = SubmitField('Register')
 
 class CourseForm(FlaskForm):
@@ -37,8 +38,9 @@ class CourseForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
 
 class profileForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    name = StringField('Update Username', validators=[DataRequired()])
     picture = FileField('Update Picture', validators=[FileAllowed(['jpeg', 'jpg', 'png'])])
+    course = StringField('Update Topic', validators=[DataRequired()])
     submit = SubmitField('Update Account')
 
     def validate_username(self, username):
@@ -46,14 +48,3 @@ class profileForm(FlaskForm):
             user = User.query.filter_by(username=username.data).first()
             if user is not None:
                 raise ValidationError('Please use a different username.')
-
-
-class FriendsForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    addNewUser = StringField('Add Friends to study with', validators=[DataRequired()])
-    submit = SubmitField('Add')
-
-    def validate_username(self, username):
-        user = Post.query.filter_by(username=body.data).first()
-        if user is not None:
-            raise ValidationError('Please use a different username.')

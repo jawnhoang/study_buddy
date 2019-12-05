@@ -15,7 +15,7 @@
      {{ form.student_courses.label }}<br>
      {{ form.student_courses }}<br>{{ form.submit() }}
      {% for buddy in found_buddy %}
-        <li>{{ buddy.username }}, {{ buddy.student_courses }} </li>
+        <li>{{ buddy.username }}, {{ buddy.student_courses }}, {{ buddy.email}} </li>
         {% endfor %}
 </p>
 </form>

@@ -4,15 +4,24 @@
 <img src='{{ image_file }}' width="10%" height="20%">
 <h1>{{ current_user.username }} </h1>
 <p> Currently studying: {{current_user.student_courses}} </p>
+<style>
+.head{
+  font-size: 20px;
+}
+</style>
 
 
+
+<div class="head">
 <p>Update Account</p>
+</div>
+
 <form action="" method="post" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
     <p>
-        Username: {{ form.username.label }}<br>
-        {{ form.username }}<br>
-        {% for error in form.username.errors %}
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}
+        {% for error in form.name.errors %}
         <span style="color: red;">[{{ error }}]</span>
         {% endfor %}
         <br>
@@ -23,6 +32,9 @@
             <span style="color: red;">[{{ error }}]</span><br>
           {% endfor %}
         {% endif %}
+          <br>
+          {{ form.course.label }}<br>
+          {{ form.course(size=32) }}
     <p>{{ form.submit() }}</p>
 
 
