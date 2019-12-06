@@ -18,7 +18,6 @@ manager = Manager(app)
 manager.add_command('db',MigrateCommand)
 
 
-
 # right side is the function that's called to login users
 login.login_view = 'login'
 

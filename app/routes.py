@@ -71,10 +71,12 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-
+@login_required
 @app.route("/location")
 def location():
-  return render_template("location.html")
+    #form = profileForm()
+    user=current_user.username
+    return render_template("location.html",user=user)
 
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
