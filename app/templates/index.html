@@ -3,6 +3,7 @@
 {% block content %}
     <!-- current_user is a property of flask-login -->
     <!-- this is seen after loging in -->
+<div class='search'>
     <title>Studdy_buddy</title>
     <h1 id="hello_friend"> Hello {{ current_user.username }}!</h1>
 <!--
@@ -19,11 +20,13 @@
 <p id="student_course">
      {{ form.student_courses.label }}<br>
      {{ form.student_courses }} {{ form.submit() }}
+     <p>Students with the same course study
      {% for buddy in found_buddy %}
         <li>{{ buddy.username }}, {{ buddy.student_courses }}, {{ buddy.email}} </li>
         {% endfor %}
 </p>
 </form>
 
+</div>
 
 {% endblock %}

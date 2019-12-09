@@ -26,11 +26,10 @@ http://studybuddy-sjsu.herokuapp.com
  - Logout: When the customer want to log out, then they will be redirected to the homepage.
  - Register: For new customer to create new account
  - Location: we use google's api for geolocation in html5. We simply use the ip_address of the user with their consent in order to show    them their location.
- - invisible: the users won't be able to see you.
- - Dark mode
  - Find study buddy: using your location, we see in our data base who else in proximity of you or the general area of the school   would    like to study the same course
 - add friend:keep track of list of people that you studied with
 - remove friend
--change profile pic
+- change profile pic
 - change username
 - change class
+- delete account

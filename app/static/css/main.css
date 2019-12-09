@@ -36,9 +36,23 @@ body{
 
 
 /* profile.html */
+.update_containter{
+  position: relative;
+  text-align: right;
+  margin-top: -15%;
+  padding: 5%;
+}
 
 
-.login_container, .register_container, .update_containter{
+.head{
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+}
+
+
+
+.login_container, .register_container{
     position: relative;
     text-align: center;
 
@@ -157,6 +171,11 @@ body{
 
 }
 
+
+.search{
+  position: relative;
+  text-align: center;
+}
 
 
 /* byebye and goodbye html */
