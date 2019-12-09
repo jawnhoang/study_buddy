@@ -24,7 +24,6 @@ def index():
     form = CourseForm()
     update_course = User.query.filter_by(id=current_user.id).first()
     update_course.student_courses = form.student_courses.data
-    #db.session.commit() # this nulls the course everytime it reloads
     flash('Looking for students with the same course')
     found_buddy = User.query.filter_by(student_courses=update_course.student_courses)
     return render_template('index.html', title='User_Home', form=form, found_buddy=found_buddy)
@@ -63,9 +62,7 @@ def register():
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data, student_courses= form.course.data) # need something like this for student column of courses
         user.set_password(form.password.data)
-        post = Post(body=form.username.data )
         db.session.add(user)
-        db.session.add(post)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
@@ -90,7 +87,7 @@ def save_picture(form_picture):
 @app.route('/profile', methods=["Get", "POST"])
 @login_required
 def profilePage():
-    form = profileForm()
+    form = profileForm(current_user.username)
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
@@ -108,15 +105,20 @@ def profilePage():
     image_file = url_for('static', filename = 'css/prof/' + current_user.image_file)
     return render_template("profile.html", title ='Profile', image_file=image_file, form=form)
 
+@app.route('/removeAccount')
+def removeAccount():
+    return render_template('goodbye.html')
+
+@app.route('/byebye', methods=["Get", "POST"])
+def deleteAccount():
+    user = User.query.filter_by(id = current_user.id).first()
+    db.session.delete(user)
+    db.session.commit()
+    return render_template('byebye.html')
+
+
+
 
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-
-'''
-todo:
-        new location api?
-        darkmode
-        look into bootstrap for css
-'''

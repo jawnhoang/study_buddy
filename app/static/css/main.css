@@ -1,4 +1,3 @@
-
 /*
 class .
 id #
@@ -6,100 +5,86 @@ id #
 */
 
 
-.sign_in{
-    padding-left: 10%;
-}
-#img_people{
-    margin-left: 40%;
-}
 
 body{
-   
+
     color:#F0EFF9 ;
 }
 
 
 
-
-.chat_box{
-    width: 300px;
-    height: 100px;
-    border: 1px solid blue;
-  }
-  
-  #mapid {
-      height: 600px;
-      width: 600px;
-      margin-left: 300px;
-   }
-  
-  #location_mapimage{
-      position: absolute;
-      height: 100%;
-      width: 100%;
-  }
-  
 /*css related to login.html*/
- #login_img_paper{
-    position: fixed;
+ #login_img_paper, #reg_img_paper{
+  position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	z-index: -1;
 	opacity: 0.15;
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
 	background-size: 100%;
-	background-attachment: fixed; 
-} 
+	background-attachment: fixed;
+}
 
-.login_container{
+
+#login_sign_in, #reg_user {
+    position: relative;
+    left: 45%;
+}
+/* end of css login.html*/
+
+
+/* profile.html */
+
+
+.login_container, .register_container, .update_containter{
     position: relative;
     text-align: center;
 
 }
 
-.login_username{
+.login_username, .register_user{
     position: relative;
-    
-}
-.login_password{
-    position: relative;
-    
+
 }
 
-.login_sign_in_btn{
+.login_password, .register_pass{
     position: relative;
-    
+
 }
 
-#login_sign_in{
-    position: relative;
-    left: 40%;
+.reg_pass_check{
+  position: relative;
 }
-/* end of css login.html*/
 
-/*
- css related to profile.html
-*/
+.register_email{
+  position: relative;
+}
+
+.login_sign_in_btn, .register_btn, .btn_update{
+    position: relative;
+
+}
+
 
 #profile_img_paper{
-    position: fixed;
+  position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	z-index: -1;
 	opacity: 0.15;
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
 	background-size: 100%;
-	background-attachment: fixed; 
-} 
+	background-attachment: fixed;
+}
 /* end of profile.html */
 
 
 
-/* css reltated to location.html */
+/*  location.html */
 #location_img_paper{
     position: fixed;
 	top: 0;
@@ -110,5 +95,72 @@ body{
 	opacity: 0.15;
     background-repeat: no-repeat;
 	background-size: 100%;
-	background-attachment: fixed; 
-} 
+
+	background-attachment: fixed;
+}
+
+#mapid {
+    height: 600px;
+    width: 600px;
+    margin-left: 300px;
+ }
+
+#location_mapimage{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* end of location.html */
+
+/* about.html*/
+
+.about_img{
+    position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 0.15;
+    background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
+
+
+
+/* index.html (user page)*/
+
+#index_img_paper{
+    position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 0.15;
+    background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
+
+#hello_friend{
+    position: relative;
+
+
+}
+
+#student_course{
+	position: relative;
+
+}
+
+
+
+/* byebye and goodbye html */
+.byebye, .deletion{
+  position: relative;
+  text-align: center;
+}

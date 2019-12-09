@@ -32,9 +32,9 @@ class Post(db.Model):  # how do we use this?
     
     def __repr__(self):
         return '<Posts {}>'.format(self.body)
-
-# class Student(db.Model):
-#     enrolled_class = db.Column(db.String(256))
+#this is going to act as a list in the User column
+# class Student_course_list(db.Model):
+#     db.Column(db.String(64), index=True, unique=False)
     
 
 

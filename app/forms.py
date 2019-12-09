@@ -22,29 +22,35 @@ class RegistrationForm(FlaskForm):
     course = StringField('What are you studying?', validators=[DataRequired()])
     submit = SubmitField('Register')
 
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user is not None:
+            raise ValidationError('Username taken. Please use a different name.')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is not None:
+            raise ValidationError('Email taken. Please use a different email.')
+
+
 class CourseForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     student_courses = StringField('Courses interested in', validators=[DataRequired()])
     submit = SubmitField('Search')
 
-    def validate_username(self, username):
-        user = User.query.filter_by(username=username.data).first()
-        if user is not None:
-            raise ValidationError('Please use a different username.')
-
-    def validate_email(self, email):
-        user = User.query.filter_by(email=email.data).first()
-        if user is not None:
-            raise ValidationError('Please use a different email address.')
 
 class profileForm(FlaskForm):
-    name = StringField('Update Username', validators=[DataRequired()])
+    name = StringField('Update Username')
     picture = FileField('Update Picture', validators=[FileAllowed(['jpeg', 'jpg', 'png'])])
-    course = StringField('Update Topic', validators=[DataRequired()])
+    course = StringField('Update Course')
     submit = SubmitField('Update Account')
 
-    def validate_username(self, username):
-        if username.data != current_user.username:
-            user = User.query.filter_by(username=username.data).first()
-            if user is not None:
-                raise ValidationError('Please use a different username.')
+
+    def __init__(self, oldName, *args, **kwargs): #initializes current name to user
+        super(profileForm, self).__init__(*args, **kwargs)
+        self.oldName = oldName
+
+    def validate_name(self, username): #checks to see if name entered already exists
+        newName = User.query.filter_by(username=self.name.data).first()
+        if newName is not None:
+            raise ValidationError('Username taken. Please use a different name.')

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='deletion'>
+<h1> Delete Account? </h1>
+<p><a href="{{ url_for('deleteAccount') }}">Yes</a></p>
+<p><a href="{{ url_for('profilePage') }}">No</a></p>
+</div>
+
+{% endblock %}

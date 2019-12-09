@@ -1,0 +1,38 @@
+1.which file, contains the hello user(dynamic)?
+	index.html
+
+2. where is the box where the user fills out username and password in sign in?
+	login.html
+2.1 where is form.usernmae.label?
+
+3. going to change index post, to ask the user for a course:
+
+	3.1 thinking of adding courseForm to forms.py
+	    check
+	3.2 validating course:
+
+	3.3 what is the difference between db.relationship and db.column?
+
+	3.4 make the databse receive post by user:
+		.does adding the metho[get post] to routes.py do anything?
+
+4. make a dropdown menu with multiple courses: {
+	1. create one to any relationship
+		files involved (routes.py, forms.py, models.py)
+		*  two drop down menus : Department-> class=> list of classess
+		models.py
+		forms.py
+		
+}
+
+5. make one to many relationship for friends list
+6. be able to remove friend from list
+7. be able to remove class from list
+8. have space in the user page for both lists
+9. location page will have your friends list, when clicked:
+	1. you will share your ip_address for a chance to get theirs
+	2. it will ask the friend to show location(provide ip_address)
+	3. once the friend sends that over both of your locations will be revieled.
+	*4. path between the two would be revealed on the map
+	*5. coffee shops would be revealed aswell
+		
